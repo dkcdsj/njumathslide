@@ -106,3 +106,7 @@ endsnippet
 snippet lx "mathlm" wA
 `` rv = "#mitex(\`${1}\`)" ``
 endsnippet
+
+snippet sd "slide" wA
+`` rv = "#slide[${1}]" ``
+endsnippet
