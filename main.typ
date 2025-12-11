@@ -1,8 +1,4 @@
-#import "@preview/touying:0.6.1": *
-#import "stargazer.typ": *
-#import "mydef.typ": *
-
-#import "@preview/numbly:0.1.0": numbly
+#import "./global.typ": *
 #set text(lang: "zh")
 #show: stargazer-theme.with(
   aspect-ratio: "16-9",
@@ -68,3 +64,4 @@
 
 #focus-slide[聚焦]
 
+#include "sections/sec1.typ"
