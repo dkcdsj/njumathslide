@@ -220,7 +220,6 @@
   level: none,
   ..args,
 ) = touying-slide-wrapper(self => {
-  // 页眉展示的标题；如需固定中文可传 title: "目录"。
   self.store.title = title
   touying-slide(
     self: self,
@@ -235,9 +234,9 @@
             level: level,
             alpha: self.store.alpha,
             indent: (0em, 1em),
-            vspace: (.4em,),
+            vspace: (0.4em,),
             numbered: (numbered,),
-            depth: 1,
+            depth: 2,
             ..args.named(),
           ),
         ),
@@ -246,7 +245,6 @@
     ),
   )
 })
-
 
 /// New section slide for the presentation. You can update it by updating the `new-section-slide-fn` argument for `config-common` function.
 ///
@@ -264,6 +262,45 @@
 // 新章节页：本质复用 outline-slide，常用于章节分隔。level 控制 heading 层级，numbered 是否编号。
 #let new-section-slide(
   config: (:),
+  level: 1,
+  numbered: true,
+  body,
+) = touying-slide-wrapper(self => {
+  let slide-body = {
+    set std.align(horizon)
+    show: pad.with(20%)
+    set text(size: 1.5em)
+    stack(
+      dir: ttb,
+      spacing: 1em,
+      text(self.colors.neutral-darkest, utils.display-current-heading(
+        level: level,
+        numbered: numbered,
+        style: auto,
+      )),
+      block(
+        height: 2pt,
+        width: 100%,
+        spacing: 0pt,
+        components.progress-bar(
+          height: 2pt,
+          self.colors.primary,
+          self.colors.primary-light,
+        ),
+      ),
+    )
+    text(self.colors.neutral-dark, body)
+  }
+  self = utils.merge-dicts(
+    self,
+    config-page(fill: self.colors.neutral-lightest),
+  )
+  touying-slide(self: self, config: config, slide-body)
+})
+/// 旧版
+/* 
+#let new-section-slide(
+  config: (:),
   title: utils.i18n-outline-title,
   level: 1,
   numbered: true,
@@ -277,8 +314,7 @@
   ..args,
   body,
 )
-
-
+*/
 
 /// Focus on some content.
 ///
