@@ -504,7 +504,7 @@
       footer-b: footer-b,
       footer-c: footer-c,
       footer-d: footer-d,
-      background: image(
+      background: /* */image(
         "njubackground.png",
         width: 100%,
         height: 100%,

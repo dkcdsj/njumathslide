@@ -7,11 +7,11 @@
 #show: stargazer-theme.with(
   aspect-ratio: "16-9",
   config-info(
-    title: [Stargazer in Touying: Customize Your Slide Title Here],
-    subtitle: [Customize Your Slide Subtitle Here],
+    title: [njumathslide],
+    subtitle: [基于stargazer魔改],
     author: [Authors],
     date: datetime.today(),
-    institution: [Institution],
+    institution: [南京大学数学学院],
     logo: image("njulogo.pdf"),
   ),
   // 通过 config-store 覆盖导航（stargazer-theme 会把 with(...) 的参数透传给 touying-slides.with）
@@ -28,7 +28,7 @@
         columns: (0.6em, auto, 1fr, auto, 1em, auto, 0.2em),
         column-gutter: 0.4em,
         // 第1列：固定 logo.png
-        box(), image("logo.png", height: 1.6em),
+        box(), image("logo.png", height: 1.8em),
         // 第2列：仿 simple 样式的导航（浅色字，透明背景）
         components.simple-navigation(
           self: self,
@@ -38,7 +38,7 @@
           logo: none,
         ),
         // 第3列：njuname.png
-        image("njuname.png", height: 1.6em),
+        image("njuname.png", height: 1.8em),
         // 空列：用于拉开第3、4列的距离
         box(),
         // 第4列：默认 header-right（来自 config-info 的 logo）
@@ -62,16 +62,8 @@
 
 #title-slide()
 
-//#outline-slide()
+#outline-slide()
 
 = 梦想开始的地方
 
-#slide[ndjsfk]
-
-#mi("x^2")
-
-#mitex(`x^222`)
-
-= 鞋袜是
-
-#focus-slide[1]
+#focus-slide[聚焦]
