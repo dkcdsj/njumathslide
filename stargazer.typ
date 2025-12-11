@@ -440,7 +440,7 @@
           self,
           components.progress-bar(
             height: 2pt,
-            self.colors.primary,
+            self.colors.primary, // 进度条颜色
             self.colors.neutral-lightest,
           ),
         )
@@ -470,6 +470,7 @@
         set list(marker: components.knob-marker(primary: self.colors.primary))
         show figure.caption: set text(size: 0.6em)
         show footnote.entry: set text(size: 0.6em)
+        //show strong: self.methods.alert.with(self: self)
         show heading: set text(fill: self.colors.primary)
         show link: it => if type(it.dest) == str {
           set text(fill: self.colors.primary)
@@ -481,7 +482,8 @@
 
         body
       },
-      alert: utils.alert-with-primary-color,
+      alert: (self: none, it) => text(fill: self.colors.tertiary, it), // 修改全局强调颜色
+      //alert: utils.alert-with-primary-color,
       tblock: _tblock,
     ),
     config-colors(
@@ -504,7 +506,7 @@
       footer-b: footer-b,
       footer-c: footer-c,
       footer-d: footer-d,
-      background: /* */image(
+      background: /* */ image(
         "njubackground.png",
         width: 100%,
         height: 100%,
